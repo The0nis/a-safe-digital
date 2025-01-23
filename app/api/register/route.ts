@@ -25,7 +25,8 @@ export const POST = async (request: Request): Promise<NextResponse> => {
   try {
     // Check if the user already exists
     const existingUser = await User.findOne({ where: { email: email } });
-    if (existingUser !== null) {
+    console.log("existingUser", existingUser);
+    if (existingUser === null) {
       await createUser(newUser);
       return new NextResponse("User has been created", {
         status: 201,
