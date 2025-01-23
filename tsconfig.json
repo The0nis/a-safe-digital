@@ -13,15 +13,24 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    "baseUrl": ".",
     "plugins": [
       {
         "name": "next"
       }
     ],
+    "types": ["@testing-library/jest-dom"],
     "paths": {
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "middleware.js",
+    "__tests__/snapshot.tsx"
+, "__mocks__/mongodb.ts", "__mocks__/next-auth/react.js", "__mocks__/lucide-react.js"  ],
   "exclude": ["node_modules"]
 }

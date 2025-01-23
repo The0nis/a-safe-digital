@@ -2,20 +2,299 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+body {
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    --radius: 0.3rem;
+  }
+
+  [data-theme="light-zinc"] {
+    --background: #f8fafc;
+    --foreground: #f8fafc;
+    --primary: #09090b;
+    --primary-foreground: #09090be6;
+
+    --primary-hover: #09090be6;
+
+    --secondary: #d1d5db;
+    --secondary-foreground: #09090b;
+
+    --muted: #09090b;
+    --muted-foreground: #2f3031;
+
+    --accent: #09090b;
+    --accent-hover: #09090b;
+
+    --border: #e5e7eb;
+    --border-accent: #09090b;
+    --input: #f8fafc;
+    --ring: #09090b;
+  }
+
+  [data-theme="light-orange"] {
+    --background: #fef3c7;
+    --foreground: #7c2d12;
+    --background-transparent: #fef3c799;
+
+    --primary: #ea580c;
+    --primary-foreground: #fef3c7;
+    --primary-hover: #c2410c;
+
+    --secondary: #fcd34d;
+    --secondary-foreground: #7c2d12;
+
+    --muted: #fde68a;
+    --muted-foreground: #92400e;
+
+    --accent: #f97316;
+    --accent-hover: #ea580c;
+
+    --border: #fde68a;
+    --border-accent: #f97316;
+    --input: #fef3c7;
+    --ring: #f97316;
+  }
+
+  [data-theme="light-red"] {
+    --background: #fee2e2;
+    --foreground: #7f1d1d;
+    --background-transparent: #fee2e299;
+
+    --primary: #dc2626;
+    --primary-foreground: #fee2e2;
+    --primary-hover: #b91c1c;
+
+    --secondary: #fca5a5;
+    --secondary-foreground: #7f1d1d;
+
+    --muted: #fecaca;
+    --muted-foreground: #991b1b;
+
+    --accent: #ef4444;
+    --accent-hover: #dc2626;
+
+    --border: #fecaca;
+    --border-accent: #ef4444;
+    --input: #fee2e2;
+    --ring: #ef4444;
+  }
+
+  [data-theme="light-green"] {
+    --background: #d1fae5;
+    --foreground: #064e3b;
+    --background-transparent: #d1fae599;
+
+    --primary: #10b981;
+    --primary-foreground: #d1fae5;
+    --primary-hover: #059669;
+
+    --secondary: #6ee7b7;
+    --secondary-foreground: #064e3b;
+
+    --muted: #a7f3d0;
+    --muted-foreground: #065f46;
+
+    --accent: #34d399;
+    --accent-hover: #10b981;
+
+    --border: #a7f3d0;
+    --border-accent: #34d399;
+    --input: #d1fae5;
+    --ring: #34d399;
+  }
+
+  [data-theme="light-blue"] {
+    --background: #dbeafe;
+    --foreground: #1e3a8a;
+    --background-transparent: #dbeafe99;
+
+    --primary: #3b82f6;
+    --primary-foreground: #dbeafe;
+    --primary-hover: #2563eb;
+
+    --secondary: #93c5fd;
+    --secondary-foreground: #1e3a8a;
+
+    --muted: #bfdbfe;
+    --muted-foreground: #1e40af;
+
+    --accent: #60a5fa;
+    --accent-hover: #3b82f6;
+
+    --border: #bfdbfe;
+    --border-accent: #60a5fa;
+    --input: #dbeafe;
+    --ring: #60a5fa;
+  }
+
+  /*  DARK THEMES */
+  [data-theme="dark-zinc"] {
+    --background: #18181b;
+    --foreground: #f4f4f5;
+    --background-transparent: #18181b99;
+
+    --primary: #f4f4f5;
+    --primary-foreground: #f4f4f5;
+    --primary-hover: #18181b;
+
+    --secondary: #27272a;
+    --secondary-foreground: #d4d4d8;
+
+    --muted: #3f3f46;
+    --muted-foreground: #a1a1aa;
+
+    --accent: #a1a1aa;
+    --accent-hover: #71717a;
+
+    --border: #27272a;
+    --border-accent: #a1a1aa;
+    --input: #18181b;
+    --ring: #a1a1aa;
+  }
+
+  [data-theme="dark-orange"] {
+    --background: #7c2d12;
+    --foreground: #fef3c7;
+    --background-transparent: #7c2d1299;
+
+    --primary: #fef3c7;
+    --primary-foreground: #7c2d12;
+    --primary-hover: #fde68a;
+
+    --secondary: #92400e;
+    --secondary-foreground: #fcd34d;
+
+    --muted: #78350f;
+    --muted-foreground: #fef3c7;
+
+    --accent: #ea580c;
+    --accent-hover: #c2410c;
+
+    --border: #92400e;
+    --border-accent: #ea580c;
+    --input: #7c2d12;
+    --ring: #ea580c;
+  }
+
+  [data-theme="dark-red"] {
+    --background: #7f1d1d;
+    --foreground: #fee2e2;
+    --background-transparent: #7f1d1d99;
+
+    --primary: #fee2e2;
+    --primary-foreground: #7f1d1d;
+    --primary-hover: #fecaca;
+
+    --secondary: #991b1b;
+    --secondary-foreground: #fca5a5;
+
+    --muted: #9f1239;
+    --muted-foreground: #fee2e2;
+
+    --accent: #dc2626;
+    --accent-hover: #b91c1c;
+
+    --border: #991b1b;
+    --border-accent: #dc2626;
+    --input: #7f1d1d;
+    --ring: #dc2626;
+  }
+
+  [data-theme="dark-green"] {
+    --background: #064e3b;
+    --foreground: #d1fae5;
+    --background-transparent: #064e3b99;
+
+    --primary: #d1fae5;
+    --primary-foreground: #064e3b;
+    --primary-hover: #a7f3d0;
+
+    --secondary: #065f46;
+    --secondary-foreground: #6ee7b7;
+
+    --muted: #047857;
+    --muted-foreground: #d1fae5;
+
+    --accent: #10b981;
+    --accent-hover: #059669;
+
+    --border: #065f46;
+    --border-accent: #10b981;
+    --input: #064e3b;
+    --ring: #10b981;
+  }
+
+  [data-theme="dark-blue"] {
+    --background: #1e3a8a;
+    --foreground: #dbeafe;
+    --background-transparent: #1e3a8a99;
+
+    --primary: #dbeafe;
+    --primary-foreground: #1e3a8a;
+    --primary-hover: #bfdbfe;
+
+    --secondary: #1e40af;
+    --secondary-foreground: #93c5fd;
+
+    --muted: #1e3a8a;
+    --muted-foreground: #dbeafe;
+
+    --accent: #3b82f6;
+    --accent-hover: #2563eb;
+
+    --border: #1e40af;
+    --border-accent: #3b82f6;
+    --input: #1e3a8a;
+    --ring: #3b82f6;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  * {
+    @apply border-border;
+    ::-webkit-scrollbar {
+      inline-size: 1px;
+      block-size: 2px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: var(--muted-foreground);
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--background);
+    }
+  }
+  body {
+    @apply bg-background text-foreground;
+    overflow-x: hidden;
+  }
 }

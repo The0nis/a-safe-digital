@@ -1,36 +1,80 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Technical Test: React Developer with Next.js, TypeScript, and Tailwind CSS
 
-## Getting Started
+## Task 1: Authentication with Next.js
 
-First, run the development server:
+- Secure routes using NextAuth.js for authentication.
+- Implement email/password-based authentication.
+- Do not use third-party authentication providers (Google, GitHub, Facebook, etc.).
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Task 2: Component Development
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### UI Components
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Create a UI Kit for the project.
+- Pay special attention to the components' style, ensuring the application has a nice look and feel.
+- Implement a theme system with multiple theme options.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Custom Hook
 
-## Learn More
+- Create a custom hook for handling complex logic to be reused across the application.
 
-To learn more about Next.js, take a look at the following resources:
+## Task 3: Dashboard Generation
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Develop a dashboard to show a summary of information.
+- This dashboard should include a graph, using libraries such as D3.js, Chart.js, etc.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Task 4: Large Data Set Handling
 
-## Deploy on Vercel
+- Using a set of at least 1000 records, create a view that allows efficient querying and data retrieval.
+- Implement an optimal way of displaying information to the user (e.g., using pagination).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Task 5: Performance Optimisation
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Make the most of the Next.js 14 features by using server-side rendering, server components, and the streaming technique.
+- Optimize the application for mobile performance using Google Lighthouse metrics.
+
+## Task 6: Testing
+
+- Perform unit testing of the application with Jest and/or React Testing Library.
+- Perform E2E testing of the application with Cypress.
+
+## Task 7: Documentation
+
+- Provide a detailed README with instructions, architecture overview, and any additional information.
+
+## Submission Guidelines
+
+- Share the link to the Git repository containing your code.
+- Ensure that your application is deployed, and share the deployment link (e.g., Netlify, Vercel).
+
+## Using Cypress
+
+To perform E2E testing with Cypress, follow these steps:
+
+1. **Install Cypress**:
+    ```bash
+    npm install cypress --save-dev
+    ```
+
+2. **Open Cypress**:
+    ```bash
+    npx cypress open
+    ```
+
+3. **Write Tests**:
+    Create test files in the `cypress/integration` directory. Example:
+    ```javascript
+    describe('My First Test', () => {
+      it('Visits the app', () => {
+        cy.visit('http://localhost:3000');
+        cy.contains('Welcome');
+      });
+    });
+    ```
+
+4. **Run Tests**:
+    ```bash
+    npx cypress run
+    ```
+
+Refer to the [Cypress documentation](https://docs.cypress.io) for more details on writing and running tests.
