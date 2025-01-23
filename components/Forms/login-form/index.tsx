@@ -105,7 +105,7 @@ const LoginForm = () => {
             <Button
               loading={loading}
               type="submit"
-              className="rounded-md border border-1 rounded-sm shadow-md border-primary"
+              className="rounded-md border border-1 rounded-sm shadow-md border-primary "
               key="submit"
               variant="outline"
             >
