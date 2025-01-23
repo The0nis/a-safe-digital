@@ -78,8 +78,11 @@ const ThemeSwitcher = () => {
   if (!mounted) return null;
 
   return (
-    <div className="relative">
-      <button onClick={() => setDropdown(!dropdown)}>
+    <div className="relative" data-id="theme-switcher">
+      <button
+        onClick={() => setDropdown(!dropdown)}
+        data-id="theme-switcher-button"
+      >
         <Paintbrush className="text-accent w-7 h-7" />
       </button>
 
@@ -89,10 +92,21 @@ const ThemeSwitcher = () => {
           className={cn(
             "absolute transition-all z-[60] top-auto right- w-[350px] bg-secondary border border-accent p-3 rounded-md overflow-hidden"
           )}
+          data-id="theme-switcher-dropdown"
         >
           <div className="flex flex-col space-y-3">
-            <div className="w-full font-semibold">Customize Theme</div>
-            <div className="text-sm font-semibold mt-4">Mode</div>
+            <div
+              className="w-full font-semibold"
+              data-id="theme-switcher-title"
+            >
+              Customize Theme
+            </div>
+            <div
+              className="text-sm font-semibold mt-4"
+              data-id="theme-switcher-mode-title"
+            >
+              Mode
+            </div>
             <div className="grid grid-cols-3 w-full gap-3">
               <button
                 className={cn(
@@ -100,6 +114,7 @@ const ThemeSwitcher = () => {
                   mode === "light" && "border-2 border-border"
                 )}
                 onClick={() => handleModeChange("light")}
+                data-id="theme-switcher-light-mode"
               >
                 <Sun className="w-5 h-5 shrink-0" />
                 Light
@@ -110,12 +125,18 @@ const ThemeSwitcher = () => {
                   mode === "dark" && "border-2 border-border"
                 )}
                 onClick={() => handleModeChange("dark")}
+                data-id="theme-switcher-dark-mode"
               >
                 <Moon className="w-5 h-5 shrink-0" />
                 Dark
               </button>
             </div>
-            <div className="text-sm font-semibold mt-4">Colors</div>
+            <div
+              className="text-sm font-semibold mt-4"
+              data-id="theme-switcher-colors-title"
+            >
+              Colors
+            </div>
             <div className="grid grid-cols-3 w-full gap-3">
               {themes[mode as keyof ThemeType]?.map((themeOption) => (
                 <button
@@ -123,10 +144,10 @@ const ThemeSwitcher = () => {
                   onClick={() => setTheme(mode + "-" + themeOption.name)}
                   className={cn(
                     "flex items-center gap-x-2 border border-muted py-1 px-2 rounded-md text-sm text-foreground hover:bg-background transition ease-in",
-
                     theme === mode + "-" + themeOption.name &&
                       "border-2 border-border"
                   )}
+                  data-id={`theme-switcher-color-${themeOption.name}`}
                 >
                   <div
                     className={`w-4 h-4 rounded-full border shrink-0 ${themeOption.color}`}

@@ -3,7 +3,10 @@ import "./globals.css";
 import { Toaster } from "sonner";
 import { cn } from "@/lib/utils";
 import { Inter } from "next/font/google";
-import Provider from "@/components/theme-kits/theme-provider";
+// import Provider from "@/components/theme-kits/theme-provider";
+import dynamic from "next/dynamic";
+
+const Provider = dynamic(() => import("@/components/theme-kits/theme-provider"));
 
 
 export const metadata: Metadata = {
@@ -21,10 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-        ></link>
+       
       </head>
       <body className={cn("bg-background text-primary scroll-smooth", inter.className)}>
         <Provider>

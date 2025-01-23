@@ -14,8 +14,11 @@ import {
   SidebarTrigger,
 } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
-import ThemeSwitch from "@/components/theme-kits/ThemeSwich";
+// import ThemeSwitch from "@/components/theme-kits/ThemeSwich";
 import Loading from "@/loading";
+import dynamic from "next/dynamic";
+
+const ThemeSwitch = dynamic(() => import("@/components/theme-kits/ThemeSwich"));
 
 // import { ModeToggle } from "@/components/theme-kits/toggle-ui";
 

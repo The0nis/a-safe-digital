@@ -10,18 +10,18 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-transparent border-foreground border-1 text-primary-foreground shadow hover:bg-primary/90 border-foreground dark:text-primary-foreground",
+          "bg-transparent border-foreground border-1 text-primary-foreground shadow hover:bg-primary/90 border-foreground dark:text-primary-foreground ",
         destructive:
           "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90",
         outline:
-          "border border-primary-foreground bg-background shadow-sl hover:bg-accent hover:text-primary-foreground ",
+          "border border-primary-foreground bg-background shadow-sl hover:bg-accent hover:text-foreground ",
         secondary:
           "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
       },
       size: {
-        default: "h-9 px-4 py-2",
+        default: "h-9 px-4 py-2 rounded-sm",
         sm: "h-8 rounded-md px-3 text-xs",
         lg: "h-10 rounded-md px-8",
         icon: "h-9 w-9",
@@ -60,7 +60,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         {loading ? (
           <span className="flex gap-2 items-center">
             <span>
-              <i className="fa fa-refresh fa-spin"></i>
+              <div className="h-6 w-6 animate-spin rounded-full border-b-2 border-current" />
             </span>
             <span>Loading</span>
           </span>

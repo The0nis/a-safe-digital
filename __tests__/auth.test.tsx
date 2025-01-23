@@ -9,8 +9,8 @@
     import { MongoDBAdapter } from "@auth/mongodb-adapter";
     import clientPromise, { dbConnect } from "@/lib/mongoDb";
     import { generateNewTokens } from "@/lib/utils";
-    import { jwtDecode } from "jwt-decode";
-    import { toast } from "sonner";
+    // import { jwtDecode } from "jwt-decode";
+    // import { toast } from "sonner";
 
     jest.mock("next-auth");
     jest.mock("next-auth/providers/credentials");

@@ -1,7 +1,7 @@
 import Logo from "@/assets/logo";
 import Sphere from "@/assets/sphere";
 import ThemeSwitch from "@/components/theme-kits/ThemeSwich";
-import React from "react";
+import React, { Suspense } from "react";
 
 const Layout = ({
   children,
@@ -32,7 +32,9 @@ const Layout = ({
       </div>
       <div className="w-full flex items-end justify-end p-4">
         {/* <ModeToggle /> */}
-        <ThemeSwitch />
+        <Suspense fallback={null}>
+          <ThemeSwitch />
+        </Suspense>
       </div>
       <div className="flex w-full flex fex-col tab:flex-row items-center justify-center h-full z-10">
         <div className="w-full h-full flex flex-col items-center justify-center gap-[3rem]">

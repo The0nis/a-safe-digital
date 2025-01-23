@@ -64,29 +64,31 @@ const RegisterForm = () => {
   // console.log("error", error);
 
   return (
-    <div className="max-w-[35rem] w-full px-[5rem]">
+    <div className="max-w-[35rem] w-full px-[5rem]" data-id="register-form">
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
           className="space-y-4 text-primary"
+          data-id="register-form-element"
         >
           <FormField
             control={form.control}
             name="username"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Username</FormLabel>
+                <FormLabel data-id="username-label">Username</FormLabel>
                 <FormControl>
                   <Input
                     placeholder="Enter username"
                     {...field}
                     className="text-primary"
+                    data-id="username-input"
                   />
                 </FormControl>
-                <FormDescription>
+                <FormDescription data-id="username-description">
                   This is your public display name.
                 </FormDescription>
-                <FormMessage />
+                <FormMessage data-id="username-message" />
               </FormItem>
             )}
           />
@@ -95,20 +97,24 @@ const RegisterForm = () => {
             name="email"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Email</FormLabel>
+                <FormLabel data-id="email-label">Email</FormLabel>
                 <FormControl>
                   <Input
                     placeholder="Enter email"
                     {...field}
                     className="text-primary"
+                    data-id="email-input"
                   />
                 </FormControl>
                 {error !== null && (
-                  <FormDescription className="text-red-500">
+                  <FormDescription
+                    className="text-red-500"
+                    data-id="email-error"
+                  >
                     {error}
                   </FormDescription>
                 )}
-                <FormMessage />
+                <FormMessage data-id="email-message" />
               </FormItem>
             )}
           />
@@ -117,16 +123,17 @@ const RegisterForm = () => {
             name="password"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Password</FormLabel>
+                <FormLabel data-id="password-label">Password</FormLabel>
                 <FormControl>
                   <Input
                     placeholder="Password"
                     type="password"
                     {...field}
                     className="text-primary"
+                    data-id="password-input"
                   />
                 </FormControl>
-                <FormMessage />
+                <FormMessage data-id="password-message" />
               </FormItem>
             )}
           />
@@ -137,15 +144,17 @@ const RegisterForm = () => {
               className="rounded-md border border-1 rounded-sm shadow-md border-primary"
               key="submit"
               variant="outline"
+              data-id="submit-button"
             >
               Submit
             </Button>
           </div>
-          <p className="text-primary !no-wrap">
+          <p className="text-primary !no-wrap" data-id="sign-in-link">
             Already have an Account?{" "}
             <Link
               href="/auth/login"
               className="text-primary font-bold hover:underline"
+              data-id="sign-in-link-element"
             >
               Sign in
             </Link>

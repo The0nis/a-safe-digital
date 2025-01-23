@@ -1,7 +1,7 @@
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
-import User  from "@/model/user-model";
+import User from "@/model/user-model";
 import jwt from "jsonwebtoken";
 import config from "@/lib/config";
 import { MongoDBAdapter } from "@auth/mongodb-adapter";
@@ -9,7 +9,6 @@ import clientPromise, { dbConnect } from "@/lib/mongoDb";
 import { generateNewTokens } from "@/lib/utils";
 import { jwtDecode } from "jwt-decode";
 import { toast } from "sonner";
-
 
 export const {
   handlers: { GET, POST },
@@ -86,7 +85,7 @@ export const {
   callbacks: {
     jwt: async ({ token, account, user }) => {
       // user is only available the first time a user signs in authorized
-      console.log(`In jwt callback - Token is ${JSON.stringify(token)}`);
+      // console.log(`In jwt callback - Token is ${JSON.stringify(token)}`);
 
       if (token.accessToken) {
         const decodedToken = jwtDecode(token.accessToken as string);
@@ -107,18 +106,18 @@ export const {
       }
 
       // Return previous token if the access token has not expired yet
-      console.log(
-        "**** Access token expires on *****",
-        token.accessTokenExpires,
-        new Date(token.accessTokenExpires as number)
-      );
+      // console.log(
+      //   "**** Access token expires on *****",
+      //   token.accessTokenExpires,
+      //   new Date(token.accessTokenExpires as number)
+      // );
       if (Date.now() < (token.accessTokenExpires as number)) {
         // console.log("**** returning previous token ******");
         return token;
       }
 
       // Access token has expired, try to update it
-      console.log("**** Update Refresh token ******");
+      // console.log("**** Update Refresh token ******");
       return generateNewTokens(token as any);
     },
     session: async ({ session, token }: { session: any; token: any }) => {
@@ -127,9 +126,9 @@ export const {
         session.accessToken = token.accessToken;
         session.user = token.user;
       }
-      console.log(
-        `In after session callback - Session is ${JSON.stringify(session)}`
-      );
+      // console.log(
+      //   `In after session callback - Session is ${JSON.stringify(session)}`
+      // );
 
       return session;
     },
