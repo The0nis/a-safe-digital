@@ -1,14 +1,14 @@
 import MOCK_DATA from "@/lib/MOCK_DATA.json";
 import { NextResponse } from "next/server";
 import NextAuth from "next-auth";
-import { authConfig } from "@/auth.config";
+ 
 
 const { auth } = NextAuth({
-  ...authConfig,
   session: {
-    ...authConfig.session,
-    strategy: "jwt" 
-  }
+   strategy: 'jwt',
+   maxAge: 24 * 60 * 60, // 1 Day
+  },
+  providers: [],
 });
 
 export const GET = async (req: Request): Promise<NextResponse> => {

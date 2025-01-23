@@ -103,12 +103,11 @@ const LoginForm = () => {
           />
           <div className="flex gap-3 items-end">
             <Button
-              type="submit"
-              className="border border-1 rounded-md shadow-md border-primary"
-              key="submit"
               loading={loading}
-              // variant="outline"
-              data-testid="submit"
+              type="submit"
+              className="rounded-md border border-1 rounded-sm shadow-md border-primary"
+              key="submit"
+              variant="outline"
             >
               Submit
             </Button>

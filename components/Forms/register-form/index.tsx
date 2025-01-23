@@ -49,16 +49,13 @@ const RegisterForm = () => {
         toast.success("Registration successful");
         router.push("/auth/login");
       } else if (response.status === 202) {
-      
         setError("Email is already registered");
       } else {
         toast.error("Registration Failed");
       }
     } catch (e: any) {
-     
-        console.error(e);
-        toast.error("An unexpected error occurred");
-      
+      console.error(e);
+      toast.error("An unexpected error occurred");
     } finally {
       setLoading(false);
     }
@@ -146,7 +143,10 @@ const RegisterForm = () => {
           </div>
           <p className="text-primary !no-wrap">
             Already have an Account?{" "}
-            <Link href="/auth/login" className="text-primary font-bold hover:underline">
+            <Link
+              href="/auth/login"
+              className="text-primary font-bold hover:underline"
+            >
               Sign in
             </Link>
           </p>
