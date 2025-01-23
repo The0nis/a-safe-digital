@@ -3,7 +3,11 @@ import mongoose from "mongoose";
 import config from "@/lib/config";
 
 declare global {
-  var _mongoClientPromise: Promise<MongoClient> | undefined;
+  namespace NodeJS {
+    interface Global {
+      _mongoClientPromise: Promise<MongoClient> | undefined;
+    }
+  }
 }
 
 if (!config.DATABASE_URL) {
@@ -28,7 +32,7 @@ export default clientPromise;
 
 export async function dbConnect() {
   try {
-    let conn = await mongoose.connect(String(config.DATABASE_URL));
+    const conn = await mongoose.connect(String(config.DATABASE_URL));
     return conn;
   } catch (e) {
     throw new Error(e instanceof Error ? e.message : String(e));

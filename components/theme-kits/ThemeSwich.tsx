@@ -3,7 +3,7 @@
 import { cn } from "@/lib/utils";
 import { Moon, Paintbrush, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import {
   DropdownMenu,
   DropdownMenuTrigger,

@@ -16,7 +16,7 @@ import {
   SidebarMenuSubItem,
 } from "@/components/ui/sidebar";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+// import { usePathname } from "next/navigation";
 
 
 const commonClasses = {
@@ -42,13 +42,13 @@ const NavMain = ({
     }[];
   }[];
 }) => {
-  const pathname = usePathname();
+  // const pathname = usePathname();
   return (
     <SidebarGroup>
       <SidebarGroupLabel>Platform</SidebarGroupLabel>
       <SidebarMenu>
         {items.map((item) => {
-          const isActive = pathname === item.url;
+          // const isActive = pathname === item.url;
           return (
             <Collapsible
               key={item.title}

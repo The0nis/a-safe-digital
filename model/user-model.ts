@@ -1,5 +1,5 @@
-"use server"
-import  { models, Model, Schema, model } from "mongoose";
+"use server";
+import { models, Model, Schema, model } from "mongoose";
 
 const userSchema: Schema<UserRequest> = new Schema({
   username: { type: String, required: true },

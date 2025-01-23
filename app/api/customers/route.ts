@@ -4,7 +4,13 @@ import NextAuth from "next-auth";
 import { authConfig } from "@/auth.config";
 
 
-const { auth } = NextAuth(authConfig);
+const { auth } = NextAuth({
+  ...authConfig,
+  session: {
+    ...authConfig.session,
+    strategy: "jwt" 
+  }
+});
 
 export const GET = async (req: Request): Promise<NextResponse> => {
   const session = await auth();

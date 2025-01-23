@@ -9,6 +9,7 @@ const useSession = jest.fn(() => {
   return { data: mockSession, status: "authenticated" };
 });
 
+import config from "@/lib/config";
 import { MongoMemoryServer } from "mongodb-memory-server";
 import mongoose from "mongoose";
 
@@ -16,7 +17,7 @@ let mongoServer;
 
 const connect = async () => {
   mongoServer = await MongoMemoryServer.create();
-  const uri = mongoServer.getUri() ?? "mongodb+srv://monitechdev:mdmeQ9ZbthyPmcWa@cluster0.or3wq.mongodb.net/"
+  const uri = mongoServer.getUri() ?? config.DATABASE_URL
   ;
   console.log("uri", uri);
   const mongooseOpts = {

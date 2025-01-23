@@ -14,7 +14,6 @@ import {
   SidebarTrigger,
 } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
-import ThemeSwitcher from "@/components/theme-kits/ThemeSwicher";
 import ThemeSwitch from "@/components/theme-kits/ThemeSwich";
 import Loading from "@/loading";
 

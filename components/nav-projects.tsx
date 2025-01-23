@@ -23,7 +23,7 @@ import {
   useSidebar,
 } from "@/components/ui/sidebar";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+// import { usePathname } from "next/navigation";
 
 const hoverStyles = "hover:bg-accent hover:text-foreground hover:border hover:rounded-md";
 
@@ -37,13 +37,13 @@ const NavProjects = ({
   }[];
 }) => {
   const { isMobile } = useSidebar();
-  const pathname = usePathname();
+  // const pathname = usePathname();
   return (
     <SidebarGroup className="group-data-[collapsible=icon]:hidden">
       <SidebarGroupLabel>Projects</SidebarGroupLabel>
       <SidebarMenu>
         {projects.map((item: { name: string; url: string; icon: any }) => {
-          const isActive = pathname === item.url;
+          // const isActive = pathname === item.url;
 
           return (
             <SidebarMenuItem key={item.name}>

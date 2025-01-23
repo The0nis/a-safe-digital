@@ -1,4 +1,4 @@
-const SettingsIcon = ({ className }: IconPropType) => (
+const SettingsIcon = ({ className }: any) => (
   <svg
     width="24"
     height="24"
