@@ -1,4 +1,29 @@
-# Technical Test: React Developer with Next.js, TypeScript, and Tailwind CSS
+# Project Documentation
+
+## Overview
+
+This project is a technical test for a React Developer role, utilizing Next.js, TypeScript, and Tailwind CSS. The application includes authentication, component development, dashboard generation, large data set handling, performance optimization, and testing.
+
+## File Structure
+
+The project follows a structured file organization to maintain clarity and separation of concerns:
+
+```
+/c:/Users/USER/Documents/CodeBase/Personal/a-safe-digital/
+├── public/
+├── src/
+│   ├── components/
+│   ├── hooks/
+│   ├── pages/
+│   ├── services/
+│   ├── styles/
+│   ├── utils/
+│   └── index.tsx
+├── .gitignore
+├── package.json
+├── README.md
+└── tsconfig.json
+```
 
 ## Task 1: Authentication with Next.js
 
@@ -47,34 +72,48 @@
 - Share the link to the Git repository containing your code.
 - Ensure that your application is deployed, and share the deployment link (e.g., Netlify, Vercel).
 
+## Running the Application
+
+To run the application, follow these steps:
+
+1. **Install dependencies**:
+  ```bash
+  npm install
+  ```
+
+2. **Start the development server**:
+  ```bash
+  npm run dev
+  ```
+
 ## Using Cypress
 
 To perform E2E testing with Cypress, follow these steps:
 
 1. **Install Cypress**:
-    ```bash
-    npm install cypress --save-dev
-    ```
+  ```bash
+  npm install cypress --save-dev
+  ```
 
 2. **Open Cypress**:
-    ```bash
-    npx cypress open
-    ```
+  ```bash
+  npx cypress open
+  ```
 
 3. **Write Tests**:
-    Create test files in the `cypress/integration` directory. Example:
-    ```javascript
-    describe('My First Test', () => {
-      it('Visits the app', () => {
-        cy.visit('http://localhost:3000');
-        cy.contains('Welcome');
-      });
+  Create test files in the `cypress/integration` directory. Example:
+  ```javascript
+  describe('My First Test', () => {
+    it('Visits the app', () => {
+    cy.visit('http://localhost:3000');
+    cy.contains('Welcome');
     });
-    ```
+  });
+  ```
 
 4. **Run Tests**:
-    ```bash
-    npx cypress run
-    ```
+  ```bash
+  npx cypress run
+  ```
 
 Refer to the [Cypress documentation](https://docs.cypress.io) for more details on writing and running tests.

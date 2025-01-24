@@ -18,6 +18,7 @@ describe("Authentical Test with AuthJS Credentials", () => {
       prefix: "Aa1!",
     });
   });
+
   it("Register user", () => {
     cy.visit("/auth/register");
 
@@ -26,10 +27,11 @@ describe("Authentical Test with AuthJS Credentials", () => {
     cy.get('[data-id="email-input"]').type(email);
     cy.get('[data-id="password-input"]').type(password);
 
-    cy.get('[data-id="submit-button"]').click();
-    // cy.intercept('POST', '/api/register').as('registerUser');
-    // cy.wait('@registerUser').its('response.statusCode').should('eq', 200);
-    // cy.url().should("include", "/auth/login");
+    cy.get('[data-id="submit-button"]')
+      .click()
+      .then(() => {
+        cy.url().should("include", "/auth/login");
+      });
   });
 
   it("Login user", () => {
@@ -40,7 +42,32 @@ describe("Authentical Test with AuthJS Credentials", () => {
     cy.get('[data-id="login-email-input"]').type(email);
     cy.get('[data-id="login-password-input"]').type(password);
 
-    cy.get('[data-id="login-submit-button"]').click();
-   
+    cy.get('[data-id="login-submit-button"]')
+      .click()
+      .then(() => {
+        cy.url().should("include", "/dashboard");
+
+        cy.get('[data-id="theme-switch-trigger"]').click();
+        cy.get('[data-id="theme-switch-color-button-green"]').click();
+
+        cy.visit("/dashboard/customer");
+
+        cy.get('[data-testid="shared-table"]').should("be.visible");
+
+        cy.get('[data-testid="shared-table"]')
+          .find("tbody tr")
+          .should("have.length.greaterThan", 0, { timeout: 10000 });
+        cy.get('[data-testid="search-table"]').type("Rosaline");
+
+        // Wait for the API call to complete and the table to update
+        cy.get('[data-testid="shared-table"]')
+          .find("tbody tr")
+          .should("have.length.greaterThan", 0, { timeout: 10000 });
+
+        cy.get('[data-testid="search-table"]').clear();
+
+        cy.get('[data-id="logout"]').should("be.visible").click();
+        cy.get('[data-id="logout-user"]').should("be.visible").click();
+      });
   });
 });

@@ -42,7 +42,7 @@ const NavUser = ({
   const { isMobile } = useSidebar();
   const { session } = useStore();
   return (
-    <SidebarMenu>
+    <SidebarMenu data-id="logout">
       <SidebarMenuItem>
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
@@ -102,7 +102,9 @@ const NavUser = ({
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
-            <DropdownMenuItem onClick={handleLogout} className={commonHoverClasses}>
+            <DropdownMenuItem onClick={handleLogout} className={commonHoverClasses}
+             data-id="logout-user"
+            >
               <LogOut />
               Log out
             </DropdownMenuItem>

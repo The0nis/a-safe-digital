@@ -363,6 +363,7 @@ const SharedTable = ({
               id="search"
               placeholder="Search"
               value={searchVal}
+              data-testid="search-table"
               // onChange={onSearchChange}
               onChange={(e) => {
                 setSearchVal(e.target.value);
@@ -403,7 +404,9 @@ const SharedTable = ({
       )}
       {/* search and filter component end here --------------- */}
       {/* table component start here ------ */}
-      <Table>
+      <Table
+      
+      data-testid="shared-table">
         {tableheaderList?.length > 0 && (
           <>
             <TableHeader>
